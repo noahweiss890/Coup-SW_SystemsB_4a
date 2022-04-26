@@ -21,10 +21,11 @@ namespace coup {
     // }
 
     string Game::turn() {
-        if(this->players_in_game.empty()) {
-            throw invalid_argument("no players in the game yet!");
-        }
-        return this->players_in_game.at(this->curr_turn);
+        return "Noah";
+        // if(this->players_in_game.empty()) {
+        //     throw invalid_argument("no players in the game yet!");
+        // }
+        // return this->players_in_game.at(this->curr_turn);
     }
 
     // string Game::turn() {
