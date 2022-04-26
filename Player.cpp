@@ -35,6 +35,7 @@ void Player::coup(Player p) {
     if(this->money < 7) {
         throw invalid_argument("not enough coins");
     }
+    this->money -= 7;
     this->last_action = "COUP";
     this->game.next_turn();
 }
