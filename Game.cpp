@@ -4,6 +4,10 @@ using namespace std;
 
 namespace coup {
 
+    Game::Game() {
+        
+    }
+
     vector<string> Game::players() {
         vector<string> plrs;
         for(string name : this->players_in_game) {
@@ -24,5 +28,9 @@ namespace coup {
             throw invalid_argument("game not over!");
         }
         return this->players_in_game[0];
+    }
+
+    void Game::add_player(string name) {
+
     }
 }

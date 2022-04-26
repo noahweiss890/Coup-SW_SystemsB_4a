@@ -1,8 +1,7 @@
 #include "Ambassador.hpp"
+#include "Game.hpp"
 
-Ambassador::Ambassador(coup::Game g, string player_name) : Player(g, player_name) {
-    g.add_player(player_name);
-}
+using namespace coup;
 
 void Ambassador::transfer(Player from, Player to) {
 

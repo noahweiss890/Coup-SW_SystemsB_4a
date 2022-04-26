@@ -1,3 +1,6 @@
+#ifndef GAME_HPP
+#define GAME_HPP
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,3 +19,5 @@ namespace coup {
             void add_player(string name);
     };
 }
+
+#endif
