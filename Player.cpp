@@ -42,7 +42,7 @@ void Player::coup(Player p) {
 
 int Player::coins() {
     return 0;
-    return this->money;
+    // return this->money;
 }
 
 string Player::get_name() {
