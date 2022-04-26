@@ -7,7 +7,7 @@ using namespace std;
 class Captain : public Player {
     public:
         Captain(Game g, string name) : Player(g, name) {
-             g.add_player(name);
+            //  g.add_player(*this);
         }
         void steal(Player from);
         string role();

@@ -7,7 +7,7 @@ using namespace std;
 class Contessa : public Player {
     public:
         Contessa(Game g, string name) : Player(g, name) {
-             g.add_player(name);
+            //  g.add_player(*this);
         }
         string role();
         void block(Player p);

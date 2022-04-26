@@ -19,6 +19,8 @@ TEST_CASE("checking game winner") {
 
     CHECK_THROWS(g.winner());
 
+    // cout << "HEYYYY" << endl;
+
     duke.tax();
     assassin.income();
     duke.tax();
@@ -103,11 +105,11 @@ TEST_CASE("checking players method") {
 
     vector<string> players = g.players();
     CHECK(players.size() == 5);
-    CHECK(players[0] == "p1");
-    CHECK(players[1] == "p2");
-    CHECK(players[2] == "p3");
-    CHECK(players[3] == "p4");
-    CHECK(players[4] == "p5");
+    CHECK(players.at(0) == "p1");
+    CHECK(players.at(1) == "p2");
+    CHECK(players.at(2) == "p3");
+    CHECK(players.at(3) == "p4");
+    CHECK(players.at(4) == "p5");
 }
 
 TEST_CASE("checking coins method") {
@@ -153,6 +155,24 @@ TEST_CASE("checking if 10+ coins must coup") {
     CHECK_THROWS(duke.income());
     CHECK_THROWS(duke.foreign_aid());
     CHECK_THROWS(duke.tax());
+}
+
+TEST_CASE("checking if not enough coins to coup") {
+    Game g;
+    Duke duke{g, "p1"};
+    Assassin assassin{g, "p2"};
+
+    duke.income();
+    assassin.income();
+
+    CHECK_THROWS(duke.coup(assassin));
+
+    duke.income();
+    assassin.income();
+    duke.income();
+    assassin.income();
+    duke.income();
+    CHECK_NOTHROW(assassin.coup(duke));
 }
 
 TEST_CASE("checking blocked too late") {
