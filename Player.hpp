@@ -1,5 +1,4 @@
-#ifndef PLAYER_HPP
-#define PLAYER_HPP
+#pragma once
 
 #include "Game.hpp"
 
@@ -17,10 +16,10 @@ class Player {
         Player(Game g, string player_name);
         void income();
         void foreign_aid();
-        void coup(Player p);
+        virtual void coup(Player p);
         int coins();
         string get_name();
         int get_status();
+        void set_money(int m);
+        void must_coup();
 };
-
-#endif

@@ -11,6 +11,7 @@ Player::Player(Game g, string player_name) {
 }
 
 void Player::income() {
+    // this->must_coup();
     // if(this->game.turn() != this->name) {
     //     throw invalid_argument("not your turn!");
     // }
@@ -20,6 +21,7 @@ void Player::income() {
 }
 
 void Player::foreign_aid() {
+    // this->must_coup();
     // if(this->game.turn() != this->name) {
     //     throw invalid_argument("not your turn!");
     // }
@@ -29,6 +31,7 @@ void Player::foreign_aid() {
 }
 
 void Player::coup(Player p) {
+    // this->must_coup();
     // if(this->game.turn() != this->name) {
     //     throw invalid_argument("not your turn!");
     // }
@@ -53,4 +56,14 @@ string Player::get_name() {
 int Player::get_status() {
     return 0;
     // return this->status;
+}
+
+void Player::set_money(int m) {
+    this->money = m;
+}
+
+void Player::must_coup() {
+    if(this->money >= 10) {
+        throw invalid_argument("player has 10+ coins and must coup!");
+    }
 }

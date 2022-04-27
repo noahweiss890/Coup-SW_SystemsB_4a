@@ -1,5 +1,4 @@
 #include "Assassin.hpp"
-#include "Game.hpp"
 
 void Assassin::coup(Player p) {
 

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Player.hpp"
 
+using namespace coup;
 using namespace std;
 
 class Ambassador : public Player {

@@ -1,14 +1,12 @@
-#ifndef GAME_HPP
-#define GAME_HPP
+#pragma once
 
 #include <iostream>
 #include <vector>
 #include <string>
 // #include "Player.hpp"
 
-using namespace std;
 
-class Player;
+using namespace std;
 
 namespace coup {
     class Game {
@@ -24,5 +22,3 @@ namespace coup {
             void next_turn();
     };
 }
-
-#endif

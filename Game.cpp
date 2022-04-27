@@ -1,7 +1,5 @@
 #include "Game.hpp"
 
-using namespace std;
-
 namespace coup {
 
     vector<string> Game::players() {
