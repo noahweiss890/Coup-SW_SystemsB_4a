@@ -1,5 +1,4 @@
 #include "Captain.hpp"
-#include "Game.hpp"
 
 void Captain::steal(Player from) {
 
