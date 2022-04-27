@@ -1,6 +1,9 @@
 #include "Player.hpp"
 
-Player::Player(Game g, string player_name) {
+const int coup_price = 7;
+const int max_coins = 10;
+
+Player::Player(Game g, string const &player_name) {
     this->game = g;
     this->name = player_name;
     this->money = 0;
@@ -39,10 +42,10 @@ void Player::coup(Player p) {
     if(p.status != 0) {
         throw invalid_argument("illegal coup!");
     }
-    if(this->money < 7) {
+    if(this->money < coup_price) {
         throw invalid_argument("not enough coins");
     }
-    this->money -= 7;
+    this->money -= coup_price;
     p.set_status(1);
     this->game.change_status(p.name, 1);
     this->last_action = "COUP";
@@ -50,7 +53,7 @@ void Player::coup(Player p) {
     this->game.next_turn();
 }
 
-int Player::coins() {
+int Player::coins() const {
     return this->money;
 }
 
@@ -58,7 +61,7 @@ string Player::get_name() {
     return this->name;
 }
 
-int Player::get_status() {
+int Player::get_status() const {
     return this->status;
 }
 
@@ -74,8 +77,8 @@ void Player::set_money(int m) {
     this->money += m;
 }
 
-void Player::must_coup() {
-    if(this->money >= 10) {
+void Player::must_coup() const {
+    if(this->money >= max_coins) {
         throw invalid_argument("player has 10+ coins and must coup!");
     }
 }

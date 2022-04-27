@@ -14,17 +14,18 @@ class Player {
         int status;
         Player *affected;
     public:
-        Player(Game g, string player_name);
+        Player(Game g, string const &player_name);
         void income();
         void foreign_aid();
         void coup(Player p);
-        int coins();
+        int coins() const;
         string get_name();
-        int get_status();
+        int get_status() const;
         void set_status(int s);
         string get_last_action();
         void set_money(int m);
-        void must_coup();
-        string role();
+        void must_coup() const;
+        string role() {return "";}
+        virtual void block() {}
         Player* get_affected();
 };

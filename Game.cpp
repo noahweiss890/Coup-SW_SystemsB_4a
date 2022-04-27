@@ -32,7 +32,7 @@ namespace coup {
         return win;
     }
 
-    void Game::add_player(string name) {
+    void Game::add_player(string const &name) {
         this->players_in_game.push_back(name);
         this->players_status.push_back(0);
     }
@@ -44,7 +44,7 @@ namespace coup {
         }
     }
 
-    void Game::change_status(string name, int status) {
+    void Game::change_status(string const &name, int status) {
         for(unsigned long i = 0; i < this->players_in_game.size(); i++) {
             if(this->players_in_game.at(i) == name) {
                 this->players_status.at(i) = 1;
