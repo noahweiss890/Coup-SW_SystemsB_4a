@@ -3,7 +3,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-// #include "Player.hpp"
 
 
 using namespace std;
@@ -11,14 +10,14 @@ using namespace std;
 namespace coup {
     class Game {
         vector<string> players_in_game;
-        // vector<Player> players_in_game;
+        vector<int> players_status;
         unsigned long curr_turn;
         public:
             vector<string> players();
             string turn();
             string winner();
             void add_player(string name);
-            // void add_player(Player p);
             void next_turn();
+            void change_status(string name, int status);
     };
 }
