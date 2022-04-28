@@ -3,41 +3,31 @@
 const int coup_price = 7;
 const int max_coins = 10;
 
-Player::Player(Game g, string const &player_name) {
-    this->game = g;
-    this->name = player_name;
-    this->money = 0;
-    this->last_action = "NONE";
-    this->affected = NULL;
-    this->status = 0;
-    g.add_player(player_name);
-}
-
 void Player::income() {
-    if(this->game.turn() != this->name) {
-        throw invalid_argument("not your turn!");
+    if(this->game->turn() != this->name) {
+        throw invalid_argument(this->get_name() + " not your turn!");
     }
     this->must_coup();
     this->money++;
     this->last_action = "INCOME";
     this->affected = NULL;
-    this->game.next_turn();
+    this->game->next_turn();
 }
 
 void Player::foreign_aid() {
-    if(this->game.turn() != this->name) {
-        throw invalid_argument("not your turn!");
+    if(this->game->turn() != this->name) {
+        throw invalid_argument(this->get_name() + " not your turn!");
     }
     this->must_coup();
     this->money += 2;
     this->last_action = "FOREIGN AID";
     this->affected = NULL;
-    this->game.next_turn();
+    this->game->next_turn();
 }
 
-void Player::coup(Player p) {
-    if(this->game.turn() != this->name) {
-        throw invalid_argument("not your turn!");
+void Player::coup(Player &p) {
+    if(this->game->turn() != this->name) {
+        throw invalid_argument(this->get_name() + " not your turn!");
     }
     if(p.status != 0) {
         throw invalid_argument("illegal coup!");
@@ -47,10 +37,10 @@ void Player::coup(Player p) {
     }
     this->money -= coup_price;
     p.set_status(1);
-    this->game.change_status(p.name, 1);
+    this->game->change_status(p.name, 1);
     this->last_action = "COUP";
     this->affected = NULL;
-    this->game.next_turn();
+    this->game->next_turn();
 }
 
 int Player::coins() const {
@@ -85,4 +75,8 @@ void Player::must_coup() const {
 
 Player* Player::get_affected() {
     return this->affected;
+}
+
+string Player::role() {
+    return this->card;
 }

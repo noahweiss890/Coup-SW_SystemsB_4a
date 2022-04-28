@@ -6,10 +6,9 @@ using namespace std;
 
 class Duke : public Player {
     public:
-        Duke(Game g, string name) : Player(g, name) {
-            
+        Duke(Game &g, string name) : Player(g, name, "Duke") {
+
         }
         void tax();
-        string role();
-        void block(Player p);
+        void block(Player &p);
 };

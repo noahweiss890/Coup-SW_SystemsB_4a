@@ -6,9 +6,8 @@ using namespace std;
 
 class Assassin : public Player {
     public:
-        Assassin(Game g, string name) : Player(g, name) {
+        Assassin(Game &g, string name) : Player(g, name, "Assassin") {
             
         }
-        void coup(Player p);
-        string role();
+        void coup(Player &p);
 };

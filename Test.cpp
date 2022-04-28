@@ -210,6 +210,7 @@ TEST_CASE("checking assassin") {
     assassin.foreign_aid();
     captain.income();
     assassin.income();
+    captain.income();
 
     CHECK_NOTHROW(assassin.coup(captain));
     vector<string> players = g.players();
@@ -277,25 +278,28 @@ TEST_CASE("checking captain") {
     captain2.steal(captain1);
 
     CHECK(captain1.coins() == 1);
-    CHECK(captain1.coins() == 3);
+    CHECK(captain2.coins() == 3);
 
     CHECK_NOTHROW(captain1.block(captain2));
 
     CHECK(captain1.coins() == 3);
-    CHECK(captain1.coins() == 1);
+    CHECK(captain2.coins() == 1);
 }
 
 TEST_CASE("checking contessa") {
     Game g;
     Assassin assassin{g, "p1"};
 	Contessa contessa{g, "p2"};
+    Duke duke{g, "p3"};
 
     CHECK_THROWS(contessa.block(assassin));
 
     assassin.foreign_aid();
     contessa.income();
+    duke.income();
     assassin.foreign_aid();
     contessa.income();
-    assassin.coup(contessa);
+    duke.income();
+    assassin.coup(duke);
     CHECK_NOTHROW(contessa.block(assassin));
 }

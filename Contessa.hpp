@@ -6,9 +6,8 @@ using namespace std;
 
 class Contessa : public Player {
     public:
-        Contessa(Game g, string name) : Player(g, name) {
+        Contessa(Game &g, string name) : Player(g, name, "Contessa") {
             
         }
-        string role();
-        void block(Player p);
+        void block(Player &p);
 };

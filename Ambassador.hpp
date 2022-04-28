@@ -6,10 +6,9 @@ using namespace std;
 
 class Ambassador : public Player {
     public:
-        Ambassador(Game g, string name) : Player(g, name) {
-            
+        Ambassador(Game &g, string name) : Player(g, name, "Ambassador") {
+
         }
-        void transfer(Player from, Player to);
-        string role();
-        void block(Player p);
+        void transfer(Player &from, Player &to);
+        void block(Player &p);
 };

@@ -12,8 +12,14 @@ namespace coup {
         vector<string> players_in_game;
         vector<int> players_status;
         unsigned long curr_turn;
+        bool started;
         public:
+            Game() {
+                curr_turn = 0;
+                started = false;
+            }
             vector<string> players();
+            vector<int> statuses();
             string turn();
             string winner();
             void add_player(string const &name);
