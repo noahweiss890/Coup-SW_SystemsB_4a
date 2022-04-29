@@ -19,8 +19,6 @@ TEST_CASE("checking game winner") {
 
     CHECK_THROWS(g.winner());
 
-    // cout << "HEYYYY" << endl;
-
     duke.tax();
     assassin.income();
     duke.tax();

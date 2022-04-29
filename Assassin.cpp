@@ -10,10 +10,20 @@ void Assassin::coup(Player &p) {
     if(this->money < 3) {
         throw invalid_argument("not enough coins");
     }
-    this->money -= 3;
-    p.set_status(1);
-    this->game->change_status(p.get_name(), 1);
-    this->last_action = "COUP";
-    this->affected = &p;
-    this->game->next_turn();
+    if(this->money >= 7) {
+        this->money -= 7;
+        p.set_status(1);
+        this->game->change_status(p.get_name(), 1);
+        this->last_action = "COUP";
+        this->affected = &p;
+        this->game->next_turn();
+    }
+    else {
+        this->money -= 3;
+        p.set_status(1);
+        this->game->change_status(p.get_name(), 1);
+        this->last_action = "ASSASSINATE";
+        this->affected = &p;
+        this->game->next_turn();
+    }
 }
