@@ -17,9 +17,9 @@ void Ambassador::transfer(Player &from, Player &to) {
 }
 
 void Ambassador::block(Player &p) {
-    if(p.get_status() != 0 || this->game->turn() == p.get_name() || p.role() != "Captain" || p.get_last_action() != "STEAL") {
+    if(p.get_status() != 0 || this->game->turn() == p.get_name() || p.role() != "Captain" || p.get_last_action().substr(0, 5) != "STEAL") {
         throw invalid_argument("invalid block!");
     }
-    p.set_money(-2);
-    p.get_affected()->set_money(2);
+    p.set_money(-stoi(p.get_last_action().substr(p.get_last_action().size()-1, 1)));
+    p.get_affected()->set_money(stoi(p.get_last_action().substr(p.get_last_action().size()-1, 1)));
 }
